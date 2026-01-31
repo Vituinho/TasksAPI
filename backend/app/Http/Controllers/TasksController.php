@@ -64,8 +64,9 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tasks $tasks)
+    public function destroy(Tasks $task)
     {
-        //
+        $task->delete();
+        return response()->json(null, 204);
     }
 }
