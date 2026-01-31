@@ -55,9 +55,10 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TaskRequest $request, Tasks $tasks)
+    public function update(TaskRequest $request, Tasks $task)
     {
-    
+        $task->update($request->validated());
+        return response()->json($task);
     }
 
     /**
