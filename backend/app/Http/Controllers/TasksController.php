@@ -6,7 +6,7 @@ use App\Models\Tasks;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Controllers\Requests\TaskRequest;
+use App\Http\Requests\TaskRequest;
 
 class TasksController extends Controller
 {
@@ -30,8 +30,10 @@ class TasksController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
+        $task = Tasks::create($request->validated());
+        return response()->json($task, 201);
     }
 
     /**
@@ -53,7 +55,7 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tasks $tasks)
+    public function update(TaskRequest $request, Tasks $tasks)
     {
         //
     }
