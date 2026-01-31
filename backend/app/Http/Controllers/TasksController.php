@@ -39,9 +39,9 @@ class TasksController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tasks $tasks)
-    {
-        //
+    public function show(Tasks $task)
+    {   
+        return response()->json($task);
     }
 
     /**
@@ -49,7 +49,7 @@ class TasksController extends Controller
      */
     public function edit(Tasks $tasks)
     {
-        //
+        
     }
 
     /**
@@ -57,7 +57,7 @@ class TasksController extends Controller
      */
     public function update(TaskRequest $request, Tasks $tasks)
     {
-        //
+    
     }
 
     /**
