@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
 
+type Task = {
+    id: number;
+    title: string;
+    description: string;
+    status: boolean;
+}
+
 export function ListTasks() {
     const [tasks, setTasks] = useState([]); 
     
@@ -20,7 +27,7 @@ export function ListTasks() {
                 </tr>
             </thead>
             <tbody>
-                {tasks.map((task: any) => (
+                {tasks.map((task: Task) => (
                     <tr key={task.id}>
                         <td>{task.id}</td>
                         <td>{task.title}</td>
