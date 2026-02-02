@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
+import styles from './style.module.css';
 
 type TaskCreate = {
     title: string;
@@ -43,6 +45,11 @@ export function TaskAdd() {
             description: '',
             status: false,
         });
+        
+        if(response.ok) {
+            window.location.href = "/tasks";
+        }
+
     } catch (error) {
         console.error(error);
     }
@@ -51,35 +58,48 @@ export function TaskAdd() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div>
-                <label>Título:</label>
-                <input 
-                    type="text"
-                    name='title'
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label>Descrição:</label>
-                <input 
-                    type="text"
-                    name='description'
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div>
-                <label>Status:</label>
-                <input 
-                    type="checkbox"
-                    name='status'
-                    onChange={handleChange}
-                    required
-                />
+            <div className="container">
+                <div className="row">
+                    <div className="mb-3">
+                        <label className="form-label">Título</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="title"
+                            value={formData.title}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Descrição</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="description"
+                            value={formData.description}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+
+                    <div className="form-check form-switch mb-3">
+                        <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name="status"
+                            checked={formData.status}
+                            onChange={handleChange}
+                        />
+                        <label className="form-check-label">
+                            {formData.status ? "Ativo" : "Inativo"}
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <button type="submit">Criar Task</button>
+            <button className="btn btn-primary" type="submit">Criar Task</button>
         </form>
     )
 }
