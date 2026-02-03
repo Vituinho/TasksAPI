@@ -23,34 +23,34 @@ export function TaskAdd() {
     }
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+        event.preventDefault();
 
-    try {
-        const response = await fetch("http://127.0.0.1:8000/api/task", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData), 
-        });
+        try {
+            const response = await fetch("http://127.0.0.1:8000/api/task", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData), 
+            });
 
-        if(!response.ok) {
-            throw new Error("Erro ao criar a task");
-        }
+            if(!response.ok) {
+                throw new Error("Erro ao criar a task");
+            }
 
-        setFormData({
-            title: '',
-            description: '',
-            status: false,
-        });
-        
-        if(response.ok) {
-            window.location.href = "/tasks";
-        }
+            setFormData({
+                title: '',
+                description: '',
+                status: false,
+            });
+            
+            if(response.ok) {
+                window.location.href = "/tasks";
+            }
 
-    } catch (error) {
-        console.error(error);
-    }
+            } catch (error) {
+                console.error(error);
+            }
 
     }
 
@@ -87,7 +87,6 @@ export function TaskAdd() {
                             type="hidden"
                             name="status"
                             checked={formData.status}
-                            onChange={handleChange}
                         />
                     </div>
                 </div>
