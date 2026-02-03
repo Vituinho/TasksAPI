@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import styles from './style.module.css';
-
 type TaskCreate = {
     title: string;
     description: string;
@@ -84,17 +82,13 @@ export function TaskAdd() {
                         />
                     </div>
 
-                    <div className="form-check form-switch mb-3">
+                    <div className="invisible">
                         <input
-                            className="form-check-input"
-                            type="checkbox"
+                            type="hidden"
                             name="status"
                             checked={formData.status}
                             onChange={handleChange}
                         />
-                        <label className="form-check-label">
-                            {formData.status ? "Ativo" : "Inativo"}
-                        </label>
                     </div>
                 </div>
             </div>

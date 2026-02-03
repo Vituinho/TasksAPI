@@ -34,7 +34,7 @@ export function ListTasks() {
                         <td>{task.description}</td>
                         <td>{task.status ? "Concluida" : "Pendente"}</td>
                     </tr>
-                ))};
+                ))}
             </tbody>
         </table>
     )
