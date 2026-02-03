@@ -7,8 +7,33 @@ type Task = {
     status: boolean;
 }
 
+async function handleStatus(taskID: Task) {
+    try {
+        const response = await fetch(
+            `http://127.0.0.1:8000/api/tasks/${taskID}/updatestatus`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Erro ao concluir a task");
+            }
+
+            const updatedTask = await response.json();
+
+            console.log("Task concluída:", updatedTask);
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
 export function ListTasks() {
-    const [tasks, setTasks] = useState([]); 
+    const [tasks, setTasks] = useState([]);
     
     useEffect(() => {
         fetch("http://127.0.0.1:8000/api/task")
@@ -24,6 +49,7 @@ export function ListTasks() {
                     <th>Título</th>
                     <th>Descrição</th>
                     <th>Status</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +59,9 @@ export function ListTasks() {
                         <td>{task.title}</td>
                         <td>{task.description}</td>
                         <td>{task.status ? "Concluida" : "Pendente"}</td>
+                        <td>
+                            <button onClick={() => handleStatus(task.id)} className="btn btn-primary" type="submit">Marcar como Concluida</button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
