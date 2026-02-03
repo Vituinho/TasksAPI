@@ -61,6 +61,18 @@ class TasksController extends Controller
         return response()->json($task);
     }
 
+    public function updatestatus(Tasks $task) {
+        
+        if ($task->status === true) {
+            $task->status = false;
+        } else {
+            $task->status = true;
+        }
+
+        $task->save();
+        return response()->json($task);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
