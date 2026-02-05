@@ -50,17 +50,17 @@ A aplicação é dividida em duas partes independentes:
 
 ## 📁 Estrutura do Projeto
 
-TasksAPI/
-├── backend/ # Aplicação Laravel
-│ ├── app/
-│ ├── routes/
-│ ├── database/
-│ └── ...
-├── frontend/ # Aplicação React + TypeScript
-│ ├── src/
-│ ├── public/
-│ └── ...
-└── README.md
+TasksAPI/<br>
+├── backend/ # Aplicação Laravel<br>
+│ ├── app/<br>
+│ ├── routes/<br>
+│ ├── database/<br>
+│ └── ...<br>
+├── frontend/ # Aplicação React + TypeScript<br>
+│ ├── src/<br>
+│ ├── public/<br>
+│ └── ...<br>
+└── README.md<br>
 
 ---
 
