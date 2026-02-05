@@ -14,11 +14,11 @@ export function TaskAdd() {
     });
     
     function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-        const { name, value, type, checked } = event.target;
+        const { name, value, type } = event.target;
 
         setFormData(prev => ({
             ...prev,
-            [name]: type === 'checkbox' ? checked : value,
+            [name]: type === 'checkbox' ? (event.target as HTMLInputElement).checked : value,
         }));
     }
 
