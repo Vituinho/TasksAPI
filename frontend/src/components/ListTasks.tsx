@@ -65,7 +65,10 @@ export function ListTasks() {
                         <td>{task.status ? "Concluida" : "Pendente"}</td>
                         <td>
                             <button 
-                                
+                                onClick={() => handleStatus(task.id)} 
+                                className={`btn ${task.status ? "btn-danger" : "btn-primary"}`}
+                                type="submit">
+                                {task.status ? "Marcar como Pendente" : "Marcar como Concluída"}
                             </button>
                         </td>
                     </tr>
