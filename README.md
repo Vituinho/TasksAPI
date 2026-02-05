@@ -93,20 +93,18 @@ cp .env.example .env
 
 composer install
 
-
-Gere a chave da aplicação:
+4. Gere a chave da aplicação:
 
 php artisan key:generate
 
+5. Configure o banco de dados no arquivo .env
 
-Configure o banco de dados no arquivo .env
-
-Rode as migrations:
+6. Rode as migrations:
 
 php artisan migrate
 
 
-Inicie o servidor:
+7. Inicie o servidor:
 
 php artisan serve
 
