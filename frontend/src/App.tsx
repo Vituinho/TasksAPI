@@ -9,6 +9,7 @@ export function App() {
       <Routes>
         <Route path="/tasks" element={<TasksList />} />
         <Route path="/tasks/add" element={<AddTask/>} />
+        <Route path="*" element={<TasksList/>} />
       </Routes>      
     </BrowserRouter>
     </>
