@@ -37,7 +37,7 @@ A aplicação é dividida em duas partes independentes:
 - PHP
 - Laravel
 - API REST
-- MySQL / SQLite (configurável)
+- PostgreSQL (configurável)
 
 ### Frontend
 - React
@@ -74,7 +74,7 @@ Antes de começar, você precisa ter instalado:
 - Composer
 - Node.js e npm
 - Git
-- Banco de dados (MySQL ou SQLite)
+- Banco de dados (PostgreSQL)
 
 ---
 
