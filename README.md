@@ -113,20 +113,17 @@ php artisan serve
 
 ⚛️ Frontend (React)
 
-Vá para a pasta do frontend:
+1. Vá para a pasta do frontend:
 
 cd ../frontend
 
-
-Instale as dependências:
+2. Instale as dependências:
 
 npm install
 
-
-Inicie o servidor:
+3. Inicie o servidor:
 
 npm run dev
-
 
 📍 Frontend rodando em: http://localhost:5173
 
@@ -136,7 +133,6 @@ GET /api/tasks
 
 🔁 Atualizar status da tarefa
 PATCH /api/tasks/{id}/updatestatus
-
 
 Esse endpoint alterna automaticamente entre pendente e concluída.
 
@@ -178,4 +174,3 @@ APIs REST
 Hooks e estado no React
 
 Se você está estudando desenvolvimento web full stack, esse projeto serve como uma ótima base 👍
-
