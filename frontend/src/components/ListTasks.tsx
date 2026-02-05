@@ -7,17 +7,30 @@ type Task = {
     status: boolean;
 }
 
-async function handleStatus(taskID: Task) {
+export function ListTasks() {
+    const [tasks, setTasks] = useState([]);
+    
+    useEffect(() => {
+        fetch("http://127.0.0.1:8000/api/task")
+            .then(response => response.json())
+            .then(data => setTasks(data));
+    }, []);
+
+    async function handleStatus(taskID: number) {
     try {
-        const response = await fetch(
+        await fetch(
             `http://127.0.0.1:8000/api/tasks/${taskID}/updatestatus`,
             {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
                 },
-            }
+            }   
         );
+
+        const response = await fetch("http://127.0.0.1:8000/api/task");
+        const data = await response.json();
+        setTasks(data);
 
         if (!response.ok) {
             throw new Error("Erro ao concluir a task");
@@ -31,15 +44,6 @@ async function handleStatus(taskID: Task) {
             console.error(error);
         }
     }
-
-export function ListTasks() {
-    const [tasks, setTasks] = useState([]);
-    
-    useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/task")
-            .then(response => response.json())
-            .then(data => setTasks(data));
-    }, []);
 
     return (
         <table className="table table-striped">
@@ -60,7 +64,9 @@ export function ListTasks() {
                         <td>{task.description}</td>
                         <td>{task.status ? "Concluida" : "Pendente"}</td>
                         <td>
-                            <button onClick={() => handleStatus(task.id)} className="btn btn-primary" type="submit">Marcar como Concluida</button>
+                            <button 
+                                
+                            </button>
                         </td>
                     </tr>
                 ))}
